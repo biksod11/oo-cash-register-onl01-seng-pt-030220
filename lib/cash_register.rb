@@ -18,9 +18,9 @@ class CashRegister
     @last_transaction = price * quantity  #keeps track of the latest transaction incase it needs to be voided
   end
 
-  def apply_discount                                      #for employees
-    if discount != 0
-      @total = (total * ((100 - discount.to_f)/100)).to_i
+  def apply_discount                                      #apply the discount if applicable. To get discount need to subtract from 100
+    if discount != 0                                      #change to float, divide by 100 then back to integer
+      @total = (total * ((100 - discount.to_f)/100)).to_i   #display appropriate message
       "After the discount, the total comes to $#{total}."
     else
       "There is no discount to apply."
